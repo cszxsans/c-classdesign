@@ -86,14 +86,27 @@ void Login()
     while(i--){
         fgets(sec,120,fp);
     }
-    for(int i = 0,j = 0;i < (int)strlen(sec);i++){
+    for(int i = 0,j = 0, m = 0;i < (int)strlen(sec);i++){
         if(sec[i] == ',')j++;
         if(j == 3){
             for(int k = i + 1,l = 0;l < (int)strlen(insec);k++,l++){
-                if(sec[k] == insec[l])continue;
+                if(l == (int)strlen(insec) - 1){
+                    if(sec[i + m + 2] != ','){
+                        printf("ÃÜÂë´íÎó£¬ÇëÖØÊÔ¡£\n");
+                        Sleep(2000);
+                        fclose(fp);
+                        Login();
+                        return;
+                    }
+                }
+                if(sec[k] == insec[l]){
+                    m++;
+                    continue;
+                }
                 else{
                     printf("ÃÜÂë´íÎó£¬ÇëÖØÊÔ¡£\n");
                     Sleep(2000);
+                    fclose(fp);
                     Login();
                     return;
                 }    
@@ -104,6 +117,7 @@ void Login()
             break;
         }
     }
+    fclose(fp);
 }
 //¾ÍÕïÈËµÇÂ½³É¹¦
 void patient(int record_id)
