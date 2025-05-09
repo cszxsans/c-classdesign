@@ -90,7 +90,6 @@ void Login()
         if(sec[i] == ',')j++;
         if(j == 3){
             for(int k = i + 1,l = 0;l < (int)strlen(insec);k++,l++){
-                
                 if(sec[k] == insec[l])continue;
                 else{
                     printf("ÃÜÂë´íÎó£¬ÇëÖØÊÔ¡£\n");
@@ -591,7 +590,7 @@ void patient(int record_id)
         search(record_id);
     }
     else if(opt == 3){
-        if(MessageBox(NULL,TEXT("ÖúÄúÔçÈÕ¿µ¸´£¡"),TEXT("¸ÐÐ»Ê¹ÓÃ!"),MB_OK|MB_ICONASTERISK) == IDOK) {
+        if(MessageBox(NULL,TEXT("×£ÄúÔçÈÕ¿µ¸´£¡"),TEXT("¸ÐÐ»Ê¹ÓÃ!"),MB_OK|MB_ICONASTERISK) == IDOK) {
             exit(0);
         }
     }
