@@ -66,7 +66,7 @@ void Login()
     int num = 0;
     printf("请输入你的诊疗卡号:");
     scanf("%d",&num);
-    FILE *fp = fopen("users.txt","r");
+    FILE *fp = fopen("users.txt","ab+");
     if (fp == NULL) {
         printf("文件打开失败\n");
         return;
@@ -1213,8 +1213,8 @@ void doctor()
                     }
                     break;
                 }
-                cnt++;
                 arr[cnt] = ftell(fp);
+                cnt++;
                 //printf("%s",str);
             }
         }
