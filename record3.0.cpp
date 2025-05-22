@@ -1200,21 +1200,21 @@ void doctor()
                     arr[cnt] = ftell(fp);
                     continue;
                 }
-                if(cnt == 0){
-                    arr[0] = ftell(fp);
-                    fgets(str,200,fp);
-                    arr1[0] = ftell(fp);
-                    break;
-                }
                 if(str[0] == '*'){
+                    if(cnt == 0){
+                        arr[0] = ftell(fp);
+                        fgets(str,200,fp);
+                        arr1[0] = ftell(fp);
+                        break;
+                    }
                     for(int i = 0;i < cnt;i++){
                         fgets(str,200,fp);
                         arr1[i] = ftell(fp);
                     }
                     break;
                 }
-                arr[cnt] = ftell(fp);
                 cnt++;
+                arr[cnt] = ftell(fp);
                 //printf("%s",str);
             }
         }
